@@ -1,6 +1,4 @@
 # maps in python (dictionaries)
-
-
 # birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
 # while(True):
 #     print('Enter a name (or leave blanc for exit )')
@@ -19,7 +17,6 @@
 # for t,v in birthdays.items():
 #     print (t +' : '+v)
 
-
 # get mehtod in maps 
 
 # picnicItems = {'apples': 5, 'cups': 2}
@@ -34,13 +31,3 @@
 #     count[char] = count[char] +1 
 # print(count)
 
-# tic tac toe game 
-# theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O', 'mid-L': 'X', 'mid-M': 
-# 'X', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}
-# def printBoard(board):
-#     print(board['top-L'] + ' |' + board['top-M'] + ' |' + board['top-R'])
-#     print('--+--+--')
-#     print(board['mid-L'] + ' |' + board['mid-M'] + ' |' + board['mid-R'])
-#     print('--+--+--')
-#     print(board['low-L'] + ' |' + board['low-M'] + ' |' + board['low-R'])
-# printBoard(theBoard)
