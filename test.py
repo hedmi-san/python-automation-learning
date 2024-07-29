@@ -13,7 +13,8 @@
 #         bday = input()
 #         birthdays[name] = bday
 #         print('Birthday database updated.')
-
+#
+#ki njo nakhadmo bl key and value pair in the same time we use .items as in the example below :
 # for t,v in birthdays.items():
 #     print (t +' : '+v)
 
@@ -31,3 +32,12 @@
 #     count[char] = count[char] +1 
 # print(count)
 
+spam = {'bat' : 100}
+# print(spam['bat'])
+
+#short cut for this code 
+if 'color' not in spam:
+    spam['color']='black'
+
+#is to use the setdeafult function that ensure if a key-value doesn't exist in the map it will create it 
+spam.setdefault('color','black')
