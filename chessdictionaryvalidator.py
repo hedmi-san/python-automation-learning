@@ -34,11 +34,14 @@ def isValidChessBoard(chessBoard):
         
         piece_count[color][piece_type] += 1
 
-    # Check the count of each piece
     for color in piece_count:
         if piece_count[color]['king'] != 1:
             return False
-        if sum(piece_count[color].values()) > 16:
+        if piece_count[color]['knight'] != 2:
+            return False
+        if piece_count[color]['bishop'] != 2:
+            return False
+        if piece_count[color]['rook'] != 2:
             return False
         if piece_count[color]['pawn'] > 8:
             return False
@@ -76,8 +79,8 @@ invalid_board_too_many_pawns = {
 }
 
 invalid_board_wrong_position = {
-    '1a': 'bking', '1b': 'bqueen', '1c': 'bbishop', '1d': 'bknight', '1e': 'brook',
-    '1f': 'bbishop', '1g': 'bknight', '1h': 'brook',
+    '1a': 'bking', '1b': 'bking', '1c': 'bbishop', '1d': 'bknight', '1e': 'brook',
+    '1f': 'bbishop', '1g': 'bknight', '1h': 'brook','3d':'bqueen',
     '2a': 'bpawn', '2b': 'bpawn', '2c': 'bpawn', '2d': 'bpawn', '2e': 'bpawn', '2f': 'bpawn', '2g': 'bpawn', '2h': 'bpawn',
     '9z': 'wpawn',
     '7a': 'wpawn', '7b': 'wpawn', '7c': 'wpawn', '7d': 'wpawn', '7e': 'wpawn', '7f': 'wpawn', '7g': 'wpawn', '7h': 'wpawn',
