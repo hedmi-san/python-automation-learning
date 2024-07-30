@@ -32,12 +32,12 @@
 #     count[char] = count[char] +1 
 # print(count)
 
-spam = {'bat' : 100}
+# spam = {'bat' : 100}
 # print(spam['bat'])
 
 #short cut for this code 
-if 'color' not in spam:
-    spam['color']='black'
+# if 'color' not in spam:
+#     spam['color']='black'
 
 #is to use the setdeafult function that ensure if a key-value doesn't exist in the map it will create it 
-spam.setdefault('color','black')
+# spam.setdefault('color','black')
