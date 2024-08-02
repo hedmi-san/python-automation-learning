@@ -41,4 +41,6 @@
 
 #is to use the setdeafult function that ensure if a key-value doesn't exist in the map it will create it 
 # spam.setdefault('color','black')
-print(r'there is a man who can\'t swim and have no bitchs')
+# print(r'there is a man who can\'t swim and have no bitchs')
+
+
