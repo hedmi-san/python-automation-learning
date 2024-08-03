@@ -1,6 +1,6 @@
 import pyperclip as pc # type: ignore
 
-text = 'Hello world!'
+text = 'long vie!'
 pc.copy(text)
 
 text2 = pc.paste()
