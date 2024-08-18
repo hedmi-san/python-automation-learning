@@ -1,7 +1,7 @@
 import re
 
-phoneNUmregex = re.compile(r'\d{3}-\d{3}-\d{4}')
 # finding all texts that the pattern 
+phoneNUmregex = re.compile(r'\d{3}-\d{3}-\d{4}')
 mo = phoneNUmregex.findall('Call me at 415-555-1011 tomorrow. 415-555-9999 is my office.')
 print('Phone numbers found : ')
 print(mo)
@@ -21,3 +21,64 @@ print(mo.group(0)) # same result for mo.group() return the entire matched text
 
 # if we wanna retrieve all the groups at once we can use the  groups 
 print(mo.groups())
+
+
+# optional matching pattern  
+batregex = re.compile(r'Bat(wo)?man')
+mo = batregex.search('The adventure of Batwoman')
+print(mo.group())
+mo2 =batregex.search('The adventure of Batman')
+print(mo2.group())
+
+
+# Greedy and Non-greedy Matching 
+greedyregex = re.compile(r'(Ha){3,5}')
+mo = greedyregex.search('HaHaHaHaHa')
+print(mo.group())
+
+lazyregex = re.compile(r'(Ha){3,5}?')
+mo = lazyregex.search('HaHaHaHaHa')
+print(mo.group())
+
+
+# examples
+xregex = re.compile(r'\d+\s\w+')
+mo = xregex.findall('12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, 7 swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, 1 partridge')
+print(mo) 
+
+
+# creating shorthand class 
+# vowel class 
+vowelRegex = re.compile(r'[aeiouAEIOU]')
+mo = vowelRegex.findall('Mesouad eats baby food. So he\'s a BABY BOY that still drink mammy\'s milk.')
+print(mo)
+
+# the digits at the end 
+digitregex =re.compile(r'\d*$')
+mo  = digitregex.search('Your number is 42')
+print(mo.group())
+
+def displaymatch(match):
+    if match is None:
+        return None
+    return '<Match: %r, groups=%r>' % (match.group(), match.groups())
+
+
+valid = re.compile(r'^[akqjt2-9]{5}$')
+print(displaymatch(valid.match('akt5q')))
+print(displaymatch(valid.match('727ak')))
+print(displaymatch(valid.match('akt')))
+
+
+# case insensitive 
+robocop = re.compile(r'robocop',re.I)
+print(robocop.search('RoboCop is part man, part machine, all cop.').group())
+print(robocop.search('ROBOCOP protects the innocent.').group())
+print(robocop.search('Al, why does your programming book talk about robocop so much?').group())
+
+
+
+# sub method
+subregex = re.compile(r'Agent \w+')
+mo = subregex.sub('Nigger','Mr Agent White gave the little Agent white a gun')
+print(mo)
