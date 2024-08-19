@@ -82,3 +82,7 @@ print(robocop.search('Al, why does your programming book talk about robocop so m
 subregex = re.compile(r'Agent \w+')
 mo = subregex.sub('Nigger','Mr Agent White gave the little Agent white a gun')
 print(mo)
+
+# backreferences in sub 
+regex = re.compile(r'Agent (\w)\w*')
+print(regex.sub(r'\1****','Agent Alice told Agent Carol that Agent Eve knew Agent Bob was a double agent.'))
