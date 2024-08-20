@@ -42,6 +42,11 @@
 #is to use the setdeafult function that ensure if a key-value doesn't exist in the map it will create it 
 # spam.setdefault('color','black')
 # print(r'there is a man who can\'t swim and have no bitchs')
-import random
-a =random.randint(0,1 )
-print(a)
+
+import re 
+urlRegex = re.compile(r'https?://[a-zA-Z0-9.-]+')
+text = 'Hello! Here are some links you might find useful:Check out the latest tech news at https://www.techcrunch.com .For programming tutorials, visit http://learnprogramming.net .Don\'t forget to stop by our blog: https://blog.example-site.or/articles/2024/08/15/welcome .Our company website: http://www.corporate-site.com .You can find documentation at https://docs.example.com/v1.0/getting-started.Join our forum: http://forum.example-community.io.Check our GitHub repo: https://github.com/example/repo .For shopping, try https://shop-online.co.uk/deals.Access our API at http://api.example.net/v2/.Visit https://subdomain.example.co.jp for more information.'
+
+mo = urlRegex.findall(text)
+print(mo)
+

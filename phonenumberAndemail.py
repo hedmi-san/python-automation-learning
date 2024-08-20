@@ -21,6 +21,7 @@ emailRegex =re.compile(r'''(
 [a-zA-Z0-9.-]+    # domain name
 (\.[a-zA-Z]{2,4}) #dot something
 )''',re.VERBOSE)
+urlRegex = re.compile(r'https?://[a-zA-Z0-9.-]+')
 
 text  = str(pc.paste())
 matches= []
@@ -31,11 +32,12 @@ for groups in phoneRegex.findall(text) :
     matches.append(phonenum)
 for groups in emailRegex.findall(text):
     matches.append(groups[0])
-
+for groups in urlRegex.findall(text):
+    matches.append(groups)
 
 if len(matches) > 0:
     pc.copy('\n'.join(matches))
     print('Copied to clipboard:')
     print('\n'.join(matches))
 else:
-    print('No phone numbers or email addresses found.')
+    print('No phone numbers or email addresses or websites urls found.')
