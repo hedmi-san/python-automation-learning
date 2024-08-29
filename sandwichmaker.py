@@ -1,14 +1,12 @@
-# sandwich maker program
-# data 
 import pyinputplus as pyip
-# Bread prices
+
+# Data
 bread_type = {
     'wheat': 1.56,
     'white': 1.34,
     'sourdough': 2.45
 }
 
-# Protein prices
 protein_type = {
     'chicken': 3.25,
     'turkey': 3.75,
@@ -16,40 +14,44 @@ protein_type = {
     'tofu': 2.50
 }
 
-# Cheese prices
 cheese_type = {
     'cheddar': 1.89,
     'Swiss': 2.10,
     'mozzarella': 1.75
 }
 
-# Extra prices
 extra_type = {
     'mayo': 0.50,
     'mustard': 0.40,
     'lettuce': 0.60,
     'tomato': 0.70
 }
-# asking the number of sandwich the customer wants then we start to custamize each sandwich at a time 
-listofingriediants = 4
-price = 0.0
-numberofsandwich = pyip.inputInt(prompt='How many sandwich do you want :\n',min=1)
 
+# Asking the number of sandwiches
+price = 0.0
+numberofsandwich = pyip.inputInt(prompt='How many sandwiches do you want:\n', min=1)
+
+# Sandwich customization
 for element in range(numberofsandwich):
-    prompt = 'What bread you want :\n'
-    response = pyip.inputStr(prompt,allowRegexes=['wheat|white|sourdough'],blockRegexes=[('.*','incorrect!')])
+    # Bread
+    response = pyip.inputStr('What bread do you want:\n', allowRegexes=[r'\bwheat\b|\bwhite\b|\bsourdough\b'], blockRegexes=[('.*', 'incorrect!')])
     price += bread_type[response]
-    prompt = 'What protein you want :\n'
-    response = pyip.inputStr(prompt,allowRegexes=['chicken|turkey|ham|tofu'],blockRegexes=[('.*','incorrect!')])
+
+    # Protein
+    response = pyip.inputStr('What protein do you want:\n', allowRegexes=[r'\bchicken\b|\bturkey\b|\bham\b|\btofu\b'], blockRegexes=[('.*', 'incorrect!')])
     price += protein_type[response]
-    prompt = 'Do you want Cheese ?\n'
-    response = pyip.inputYesNo(prompt)
-    if response == 'yes' : 
-        prompt = 'What cheese you want'
-        response = pyip.inputStr(prompt,allowRegexes=['mozzarella|Swiss|cheddar'],blockRegexes=[('.*','incorrect!')])
-        price += protein_type[response]
-    prompt = 'Do you want mayo, mustard, lettuce, or tomato?\n'
-    response = pyip.inputChoice(prompt,choices=['no']+list(extra_type))
+
+    # Cheese
+    cheese = pyip.inputYesNo('Do you want cheese?\n')
+    if cheese == 'yes':
+        cheese_type_choice = pyip.inputStr('What cheese do you want:\n', allowRegexes=[r'\bmozzarella\b|\bSwiss\b|\bcheddar\b'], blockRegexes=[('.*', 'incorrect!')])
+        price += cheese_type[cheese_type_choice]
+
+    # Extras
+    response = pyip.inputStr('Do you want mayo, mustard, lettuce, or tomato?\n', allowRegexes=[r'\bmayo\b|\bmustard\b|\blettuce\b|\btomato\b|\bno\b'], blockRegexes=[('.*', 'incorrect!')])
     if response != 'no':
         price += extra_type[response]
-    
+
+# Final price
+final_price = numberofsandwich * (1.5 + price)
+print(f'Here is your order sir, the check is: ${final_price:.2f}')
