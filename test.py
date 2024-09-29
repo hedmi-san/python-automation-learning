@@ -60,11 +60,14 @@ import pyinputplus as pyip
 # blank argument : 
 # by default blank are not allowed unless the blank argument is true 
 
-bread_type = {
-    'wheat': 1.56,
-    'white': 1.34,
-    'sourdough': 2.45
-}
+# bread_type = {
+#     'wheat': 1.56,
+#     'white': 1.34,
+#     'sourdough': 2.45
+# }
 
-choices = ['no'] + list(bread_type.keys())
-print(choices)
+# choices = ['no'] + list(bread_type.keys())
+# print(choices)
+
+from pathlib import Path 
+print(str(Path('spark','stark','sparn')))
